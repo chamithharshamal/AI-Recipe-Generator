@@ -1,0 +1,13 @@
+node_modules/
+.env
+build/
+dist/
+client/node_modules/
+client/build/
+client/dist/
+server/node_modules/
+server/dist/
+.qodo/
+*.log
+npm-debug.log
+.DS_Store
