@@ -1,16 +1,21 @@
-import IngredientInput from '../components/IngredientInput';
-import DietaryFilter from '../components/DietaryFilter';
+// src/pages/Home.jsx
+import React from 'react';
+import RecipeForm from '../components/Recipe/RecipeForm';
+import { useAuth } from '../context/AuthContext';
+import { Navigate } from 'react-router-dom';
 
-function Home() {
+const Home = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Generate Your Recipe!</h1>
-      <div className="max-w-2xl mx-auto">
-        <IngredientInput />
-        <DietaryFilter />
-      </div>
+    <div className="flex justify-center items-center h-screen">
+      <RecipeForm />
     </div>
   );
-}
+};
 
 export default Home;
